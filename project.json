@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "id": "pallando-data-collector",
+    "name": "Pallando Data Collector",
+    "type": "addon"
+  },
+  "runtime": {
+    "primaryAddon": "PallandoDataCollector",
+    "addons": [
+      "PallandoDataCollector"
+    ]
+  },
+  "components": [],
+  "release": {
+    "packageName": "PallandoDataCollector"
+  }
+}

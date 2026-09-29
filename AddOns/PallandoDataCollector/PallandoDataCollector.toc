@@ -1,0 +1,13 @@
+## Interface: 16001
+## Title: Pallando Data Collector
+## Notes: Collects privacy-safe development observations for WoW Forever.
+## Author: Pallando
+## Version: 0.1.0
+## SavedVariables: PallandoDataCollectorDB
+
+Bootstrap.lua
+Storage.lua
+Collectors/Client.lua
+Collectors/API.lua
+Collectors/Events.lua
+Core.lua
