@@ -6,21 +6,25 @@ The addon observes technical facts that are useful for addon development and sto
 
 ## Current scope
 
-Version 0.1.0 provides the collector foundation:
+Development version 0.1.1 provides:
 
 - WoW Forever client version, build, Interface and locale
 - a curated API availability scan
 - support/observation tracking for selected WoW events
+- observation of the current UI map and parent-map hierarchy
 - bounded, deduplicated SavedVariables storage
-- `/pdc status`, `/pdc scan` and guarded `/pdc reset confirm` commands
+- `/pdc status`, `/pdc scan`, `/pdc map` and guarded `/pdc reset confirm` commands
 
-No quest, item, spell, NPC, map, profession or pet gameplay data is collected yet.
+The map collector observes map ids and technical map metadata when the player enters the world or changes map/zone state. It does not record player coordinates.
+
+No quest, item, spell, NPC, profession or pet gameplay data is collected yet.
 
 ## Privacy principles
 
 - no network access from the addon
 - no character names, player GUIDs or Battle.net identities
 - no guild, friend, whisper or chat data
+- no player coordinates
 - no machine, installation or persistent user identifiers
 - raw SavedVariables are evidence, not an authoritative public dataset
 - public data is validated before publication

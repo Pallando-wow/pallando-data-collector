@@ -17,6 +17,13 @@ local eventNames = {
     "UPDATE_MOUSEOVER_UNIT",
 }
 
+local mapEvents = {
+    PLAYER_ENTERING_WORLD = true,
+    ZONE_CHANGED = true,
+    ZONE_CHANGED_INDOORS = true,
+    ZONE_CHANGED_NEW_AREA = true,
+}
+
 local eventFrame
 local initialized = false
 
@@ -37,6 +44,10 @@ function ns.InitializeEventCollector()
                 observed = true,
             }
         )
+
+        if mapEvents[eventName] and ns.CollectCurrentMap then
+            ns.CollectCurrentMap()
+        end
     end)
 
     for _, eventName in ipairs(eventNames) do

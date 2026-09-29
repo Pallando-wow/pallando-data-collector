@@ -6,7 +6,7 @@ It is deliberately not identical to the public JSON dataset format. Pallando's W
 
 ## Root structure
 
-The initial storage schema is version 1.
+The storage schema is version 1.
 
 ```text
 schemaVersion
@@ -46,12 +46,15 @@ Each stored record contains small machine-readable facts plus:
 
 Repeated observations update the existing record rather than appending an unbounded event log.
 
-## Initial collectors
+## Current collectors
 
-Version 0.1.0 records:
+Version 0.1.1 records:
 
 - exact client version, build, Interface number and locale
 - availability/type of a curated list of addon-development APIs
 - support and observation of a curated list of relevant WoW events
+- the player's current UI map and its parent-map chain when map/zone state changes
 
-No quest, item, spell, NPC, map, profession or pet gameplay data is collected yet. Those collectors will be added separately once their exact data contracts are defined.
+Map records can include the localized map name, map type, parent map id, flags, level ranges, map art id and world dimensions when the WoW API provides them.
+
+No quest, item, spell, NPC, profession or pet gameplay data is collected yet. Those collectors will be added separately once their exact data contracts are defined.

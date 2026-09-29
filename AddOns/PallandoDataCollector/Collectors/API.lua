@@ -15,6 +15,8 @@ local apiPaths = {
     "C_QuestLog.GetTitleForQuestID",
     "C_Map.GetBestMapForUnit",
     "C_Map.GetMapInfo",
+    "C_Map.GetMapLevels",
+    "C_Map.GetMapWorldSize",
     "C_Spell.GetSpellInfo",
     "C_Item.GetItemInfo",
     "C_UnitAuras.GetUnitAuras",
