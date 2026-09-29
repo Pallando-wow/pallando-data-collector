@@ -30,8 +30,19 @@ end
 
 local function showHelp()
     printMessage("/pdc status - show collector status")
-    printMessage("/pdc scan - rescan the API availability list")
+    printMessage("/pdc scan - rescan APIs and the current map")
+    printMessage("/pdc map - rescan the current map and its parent maps")
     printMessage("/pdc reset confirm - delete collected SavedVariables")
+end
+
+local function scanCurrentMap()
+    local count = ns.CollectCurrentMap()
+    printMessage(
+        string.format(
+            "Map scan completed (%d map records observed).",
+            tonumber(count) or 0
+        )
+    )
 end
 
 SLASH_PALLANDODATACOLLECTOR1 = "/pdc"
@@ -48,7 +59,18 @@ SlashCmdList.PALLANDODATACOLLECTOR = function(message)
 
     if command == "scan" then
         ns.ScanApis()
-        printMessage("API scan completed.")
+        local count = ns.CollectCurrentMap()
+        printMessage(
+            string.format(
+                "API and map scan completed (%d map records observed).",
+                tonumber(count) or 0
+            )
+        )
+        return
+    end
+
+    if command == "map" then
+        scanCurrentMap()
         return
     end
 
@@ -56,6 +78,7 @@ SlashCmdList.PALLANDODATACOLLECTOR = function(message)
         ns.ResetDatabase()
         ns.CollectClientMetadata()
         ns.ScanApis()
+        ns.CollectCurrentMap()
         printMessage("Collected data has been reset.")
         return
     end
@@ -86,6 +109,7 @@ frame:SetScript("OnEvent", function(_, eventName, argument)
         db.stats.sessions = (db.stats.sessions or 0) + 1
         ns.CollectClientMetadata()
         ns.ScanApis()
+        ns.CollectCurrentMap()
         ns.InitializeEventCollector()
         return
     end

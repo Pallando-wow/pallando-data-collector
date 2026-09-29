@@ -2,12 +2,13 @@
 ## Title: Pallando Data Collector
 ## Notes: Collects privacy-safe development observations for WoW Forever.
 ## Author: Pallando
-## Version: 0.1.0
+## Version: 0.1.1
 ## SavedVariables: PallandoDataCollectorDB
 
 Bootstrap.lua
 Storage.lua
 Collectors/Client.lua
 Collectors/API.lua
+Collectors/Map.lua
 Collectors/Events.lua
 Core.lua
